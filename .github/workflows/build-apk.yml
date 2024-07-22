@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ANDROID_SDK_ROOT: /usr/local/android-sdk
-      ANDROID_HOME: /usr/local/android-sdk
+      ANDROID_SDK_ROOT: $HOME/android-sdk
+      ANDROID_HOME: $HOME/android-sdk
       JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
 
     steps:
@@ -31,8 +31,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y wget tar unzip
-          wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
           mkdir -p $ANDROID_SDK_ROOT/cmdline-tools
+          wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
           unzip -q commandlinetools-linux-7583922_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
           mv $ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools $ANDROID_SDK_ROOT/cmdline-tools/tools
 
